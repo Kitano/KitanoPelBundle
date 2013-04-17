@@ -27,12 +27,12 @@ class AddExpressionCompilersPass implements CompilerPassInterface
         }
 
         $compilerDef = $container->getDefinition('kitano_pel.expression.compiler');
-        foreach ($container->findTaggedServiceIds('kitano_pel.expression.function_compiler')
+        foreach ($container->findTaggedServiceIds('kitano_pel.function_compiler')
             as $id => $attr) {
             $compilerDef->addMethodCall('addFunctionCompiler', array(new Reference($id)));
         }
 
-        foreach ($container->findTaggedServiceIds('kitano_pel.expression.type_compiler')
+        foreach ($container->findTaggedServiceIds('kitano_pel.type_compiler')
             as $id => $attr) {
             $compilerDef->addMethodCall('addTypeCompiler', array(new Reference($id)));
         }

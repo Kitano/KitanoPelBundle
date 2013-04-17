@@ -6,16 +6,18 @@
     <parameters>
         <parameter key="kitano_pel.expression.expression.class">Pel\Expression\Expression</parameter>
         <parameter key="kitano_pel.expression.compiler.class">Pel\Expression\ExpressionCompiler</parameter>
-        <parameter key="kitano_pel.expression.parameter_compiler.class">Pel\Expression\ParameterExpressionCompiler</parameter>
+        <parameter key="kitano_pel.expression.compiler.parameter_compiler.class">Pel\Expression\Compiler\ParameterExpressionCompiler</parameter>
     </parameters>
 
     <services>
         <service id="kitano_pel.expression.compiler" class="%kitano_pel.expression.compiler.class%" />
 
-        <service id="kitano_pel.expression.expression" class="%kitano_pel.expression.expression.class%" public="false" abstract="true" />
+        <service id="kitano_pel.expression.expression"
+                 class="%kitano_pel.expression.expression.class%" public="false" abstract="true" />
 
-        <service id="kitano_pel.expression.parameter_compiler" class="%kitano_pel.expressions.parameter_compiler.class%" public="false">
-            <tag name="kitano_pel.expression.type_compiler" />
+        <service id="kitano_pel.expression.compiler.parameter_compiler"
+                 class="%kitano_pel.expression.compiler.parameter_compiler.class%" public="false">
+            <tag name="kitano_pel.type_compiler" />
         </service>
     </services>
 </container>
