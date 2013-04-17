@@ -16,6 +16,7 @@
             "homepage": "http://borisguery.com"
         }
     ],
+    "minimum-stability": "dev",
     "require": {
         "symfony/framework-bundle": ">=2.0",
         "kitano/php-expression": "dev-master"
