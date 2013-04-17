@@ -100,19 +100,19 @@ class MyService
 }
 ```
 
-### Registering custom compiler
+### Registering custom expression compiler
 
 After having created your expression compiler
-(see [https://github.com/Kitano/php-expression#adding-a-custom-function-compiler](https://github.com/Kitano/php-expression#adding-a-custom-function-compiler))
-You need to register a new service into the Dependency Container with one of the following tag
+(see [https://github.com/Kitano/php-expression#adding-a-custom-function-compiler](https://github.com/Kitano/php-expression#adding-a-custom-function-compiler)),
+ you need to register a new service into the Dependency Container with one of the following tag
 (depending on your expression type):
-    * `kitano_pel.expression.type_compiler`
-    * `kitano_pel.expression.function_compiler`
+* `kitano_pel.expression.type_compiler`
+* `kitano_pel.expression.function_compiler`
 
 If we take the `isNumber()` function compiler example:
 
 ```XML
-<service id="my.expression.is_number_compiler" class="My\Expression\Compiler\Func\IsNumberFunctionCompiler.php" public="false">
+<service id="my.expression.is_number_compiler" class="My\Expression\Compiler\Func\IsNumberFunctionCompiler" public="false">
     <tag name="kitano_pel.expression.function_compiler" />
 </service>
 ```
