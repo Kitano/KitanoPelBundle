@@ -9,6 +9,8 @@
 
 namespace Kitano\PelBundle;
 
+use Kitano\PelBundle\DependencyInjection\Compiler\AddExpressionCompilersPass;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -18,4 +20,10 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class KitanoPelBundle extends Bundle
 {
+    public function build(ContainerBuilder $container)
+    {
+        parent::build($container);
+
+        $container->addCompilerPass(new AddExpressionCompilersPass());
+    }
 }
